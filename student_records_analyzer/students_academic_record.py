@@ -10,7 +10,7 @@ class StudentGWAReader:
                 self.student_records.append((student_name, float(student_gwa)))
 
     def find_top_students(self):
-        lowest_gwa_value = min(student_gwa for student_name, student_?gwa in sel.student_records)
+        lowest_gwa_value = min(student_gwa for student_name, student_gwa in sel.student_records)
         top_students = [
             (student_name, student_gwa)
             for student_name, student_gwa in self.student_records
