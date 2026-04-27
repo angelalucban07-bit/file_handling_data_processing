@@ -1,26 +1,30 @@
+RED = '\033[31m'
+GREEN = '\033[32m'
+END = '\033[0m'
 class StudentGWAReader:
-    def __init__(self, filepath):
+    def __init__(self, filepath="students.txt"):
         self.filepath = filepath
 
-    def read_students(self):
-        students = []
-        with open(self.filepath, 'students.txt') as file:
+    # We split each line
+    def read_students(self) -> list:
+        records = []
+        with open(self.filepath, 'r') as file:
             for line in file:
-                student_name, student_gwa = line.strip().split(',')
-                self.student_records.append((student_name, float(student_gwa)))
+                name, gwa = line.strip().split(",")
+                records.append((name, float(gwa)))
+        return records
 
-    def find_top_students(self):
-        lowest_gwa_value = min(student_gwa for student_name, student_gwa in sel.student_records)
-        top_students = [
-            (student_name, student_gwa)
-            for student_name, student_gwa in self.student_records
-            if student_gwa == lowest_gwa_value
-        ]
-        return top_students, lowest_gwa_value
+    def find_top_students(self, data: list) -> None:
+        if not data:
+            return print(RED + "No valid student data found.")
 
-    def display_results(self):
-        top_students, lowest_gwa_value = self.find_top_students()
-        print('Top students:')
-        for student_name, student_gwa in top_students:
-            print(f'{student_name}: {student_gwa}')
-            print('-' * len(student_gwa))
+    # Finds the record with the minimum GWA
+        top_student = min(data, key=lambda x: x[1])
+        print(GREEN + "🏆 Highest GWA Found!" + END)
+        print(f"Student: {top_student[0]}")
+        print(f"GWA: {top_student[1]}")
+
+if __name__ == "__main__":
+    gwa = StudentGWAReader()
+    student_data = gwa.read_students()
+    gwa.find_top_students(student_data)
