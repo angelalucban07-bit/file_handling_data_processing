@@ -11,3 +11,12 @@ class NumberProcessor:
 
             for line in source_file:
                 number_value = int(line.split())
+
+                if number_value % 2 == 0:
+                    # Square even numbers and save to double.txt
+                    even_output_file.write(str(number_value ** 2) + "\n")
+                else:
+                    # Cube odd numbers and save to triple.txt
+                    odd_output_file.write(str(number_value ** 3) + "\n")
+processor = NumberProcessor()
+processor.output_files()
