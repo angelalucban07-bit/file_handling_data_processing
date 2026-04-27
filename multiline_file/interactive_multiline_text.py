@@ -1,8 +1,11 @@
+from tkinter.font import ITALIC
 BOLD = '\033[1m'
 BLUE = '\033[34m'
 END = '\033[0m'
+ITALIC = '\033[3m'
+
 class NoteWriter:
-    def __init__(self, filename="notepad.txt"):
+    def __init__(self, filename="mylife.txt"):
         self.filename = filename
 
     def write_lines(self):
@@ -18,7 +21,7 @@ class NoteWriter:
                 break
 
         my_file.close()
-        print(BOLD + "File saved successfully.")
+        print(BOLD + ITALIC,"File saved successfully.")
 
 # run the program
 if __name__ == "__main__":
