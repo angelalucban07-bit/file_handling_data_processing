@@ -10,7 +10,7 @@ class NumberProcessor:
             open(self.odd_output_file, "w") as odd_output_file:
 
             for line in source_file:
-                number_value = int(line.split())
+                number_value = int(line.strip())
 
                 if number_value % 2 == 0:
                     # Square even numbers and save to double.txt
