@@ -6,27 +6,27 @@ class NumberSorter:
     def sort_and_save(self):
         try:
             #Open the file manually
-            myFile = open(self.target_file, "r")
+            my_file = open(self.target_file, "r")
             numbers = []
             #Use a for loop to read each line
-            for line in myFile:
+            for line in my_file:
                 if line.strip():
                     numbers.append(int(line.strip()))
 
             #closing the file manually
-            myFile.close()
-            evenFile = open("even.txt", "w")
-            oddFile = open("odd.txt", "w")
+            my_file.close()
+            even_file = open("even.txt", "w")
+            odd_file = open("odd.txt", "w")
 
             for n in numbers:
                 if n % 2 == 0:
-                    evenFile.write(str(n) + "\n")
+                    even_file.write(str(n) + "\n")
                 else:
-                    oddFile.write(str(n) + "\n")
+                    odd_file.write(str(n) + "\n")
 
             # Closing output files
-            evenFile.close()
-            oddFile.close()
+            even_file.close()
+            odd_file.close()
 
             print("✅ Success! Numbers sorted into even.txt and odd.txt.")
 
