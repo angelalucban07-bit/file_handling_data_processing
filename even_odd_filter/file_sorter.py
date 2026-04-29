@@ -18,11 +18,11 @@ class NumberSorter:
             even_file = open("even.txt", "w")
             odd_file = open("odd.txt", "w")
 
-            for n in numbers:
-                if n % 2 == 0:
-                    even_file.write(str(n) + "\n")
+            for number in numbers:
+                if number % 2 == 0:
+                    even_file.write(str(number) + "\n")
                 else:
-                    odd_file.write(str(n) + "\n")
+                    odd_file.write(str(number) + "\n")
 
             # Closing output files
             even_file.close()
@@ -34,8 +34,8 @@ class NumberSorter:
             print(f" Error: The file '{self.target_file}' was not found.")
         except ValueError:
             print(" Error: The file contains data that isn't an integer.")
-        except Exception as e:
-            print(f" An unexpected error occurred: {e}")
+        except Exception as unexpected_error:
+            print(f" An unexpected error occurred: {unexpected_error}")
 
 if __name__ == "__main__":
     sorter = NumberSorter("numbers.txt")
